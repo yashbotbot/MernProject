@@ -2,3 +2,7 @@
 currently on 1:21:46 timestamp.
 currently on 2:15:55 timestamp.
 there are error in project mongoDB is not connecting and nodemon  is crashing also need to fix it.
+
+
+currently on 2:21:58 timestamp.
+today we solve the error most of the part .

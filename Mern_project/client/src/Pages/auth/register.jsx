@@ -4,7 +4,7 @@ import CommonForm from "../../Components/common/form"; // <-- Make sure to impor
 import { registerFormControls } from "../../config/config"; // <-- Import or define
 import { useDispatch } from "react-redux";
 import { registerUser } from "@/store/auth-slice";
-
+import { toast } from "sonner";
 
 const initialState = {
   userName: "",
@@ -17,13 +17,26 @@ function AuthRegister() {
   const dispatch= useDispatch();
   const navigate=useNavigate();
 
+
   function onSubmit(event) {
    event.preventDefault();
-   dispatch(registerUser(formData)).then(()=> {navigate('/auth/login')});
+
+   dispatch(registerUser(formData)).then((data)=> {
+   if (data?.payload?.success) {
+    toast(data?.payload?.message)
+    navigate('/auth/login')
+ 
+  }
+      
+  else {
+   toast(data?.payload?.message, { variant: "destructive" });
+   };
+   });
   }
 
 
   console.log(formData);
+
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
       <div className="text-center">

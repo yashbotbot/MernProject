@@ -11,11 +11,11 @@ const initialState={
 
 export const registerUser = createAsyncThunk('/auth/register',
 
-    async(formData)=>{
-        const response =await axois.post("http://localhost:5000/api/auth/register",
+    async(formData)=> {
+        const response = await axios.post('http://localhost:5000/api/auth/register',
             formData,
             {
-                withCredential:true,
+                withCredential : true,
             });
             return response.data;
     }
@@ -30,20 +30,20 @@ const authSlice =createSlice({
 },
  extraReducers:(builder)=>{
     builder.addCase(registerUser.pending, (state)=>{
-        state.isLoading=true 
+        state.isLoading = true 
     })
     .addCase(registerUser.fulfilled, (state,action)=>{
-        state.isLoading=false;
-        state.user= action.payload ;
-        state.isAuthernticated =false
+        state.isLoading = false;
+        state.user = null ;
+        state.isAuthernticated = false
     })
     .addCase(registerUser.rejected, (state,action)=>{
-        state.isLoading=false;
-        state.user= null;
-        state.isAuthernticated =false
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthernticated = false
     });
  }
 });
 
-export const {setUer}=authSlice.actions;
+export const {setUser} = authSlice.actions;
 export default authSlice.reducer;

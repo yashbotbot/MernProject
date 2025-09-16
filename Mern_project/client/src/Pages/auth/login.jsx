@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CommonForm from "../../Components/common/form"; // <-- Make sure to import
-import { loginFormControls, registerFormControls } from "../../config/config"; // <-- Import or define
+import { loginFormControls } from "../../config/config"; // <-- Import or define
 
 
 const initialState = {
